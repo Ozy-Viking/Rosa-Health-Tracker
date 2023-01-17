@@ -4,17 +4,21 @@ version = "0.1.1"
 description = "Tracking Rosa's luxating petela frequency"
 authors = ["Zack Hankin <zthankin@gmail.com>"]
 readme = "README.md"
-packages = [{ include = "src" }]
+packages = [{ include = "rosa_health_tracker" }]
 include = ["CHANGELOG.md"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 icecream = "^2.1.3"
+pandas = "^1.5.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
 black = "^22.12.0"
 mypy = "^0.991"
+coverage = "^7.0.5"
+pytest-cov = "^4.0"
+
 
 [build-system]
 requires = ["poetry-core"]
