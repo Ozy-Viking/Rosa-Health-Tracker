@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rosa-health-tracker"
-version = "0.1.0"
+version = "0.1.1"
 description = "Tracking Rosa's luxating petela frequency"
 authors = ["Zack Hankin <zthankin@gmail.com>"]
 readme = "README.md"
