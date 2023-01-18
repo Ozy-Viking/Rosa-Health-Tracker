@@ -24,8 +24,8 @@ def test_entry_left():
     assert entry.total == 5
 
 
-def test_entry_both():
-    entry = Entry(left=5, right=5)
+def test_entry_both(default_entry: Entry):
+    entry = default_entry
     assert entry.left == 5
     assert entry.right == 5
     assert entry.total == 10
@@ -46,36 +46,36 @@ def test_entry_set_date_string_date():
     assert entry.date == date(year, month, day)
 
 
-def test_entry_add_1_left():
-    entry = Entry(left=5, right=5)
+def test_entry_add_1_left(default_entry: Entry):
+    entry = default_entry
     assert entry.left == 5 and entry.right == 5
     entry.add(is_left=True)
     assert entry.left == 6
 
 
-def test_entry_add_1_right():
-    entry = Entry(left=5, right=5)
+def test_entry_add_1_right(default_entry: Entry):
+    entry = default_entry
     assert entry.left == 5 and entry.right == 5
     entry.add(is_right=True)
     assert entry.right == 6
 
 
-def test_entry_add_5_left():
-    entry = Entry(left=5, right=5)
+def test_entry_add_5_left(default_entry: Entry):
+    entry = default_entry
     assert entry.left == 5 and entry.right == 5
     entry.add(5, is_left=True)
     assert entry.left == 10
 
 
-def test_entry_add_5_right():
-    entry = Entry(left=5, right=5)
+def test_entry_add_5_right(default_entry: Entry):
+    entry = default_entry
     assert entry.left == 5 and entry.right == 5
     entry.add(5, is_right=True)
     assert entry.right == 10
 
 
-def test_entry_add_errors():
-    entry = Entry(left=5, right=5)
+def test_entry_add_errors(default_entry: Entry):
+    entry = default_entry
     with pytest.raises(ValueError):
         entry.add(-5, is_right=True)
     with pytest.raises(TypeError):
@@ -84,3 +84,10 @@ def test_entry_add_errors():
         entry.add(is_right=1)  # type: ignore
     with pytest.raises(TypeError):
         entry.add(is_left=1)  # type: ignore
+
+
+def test_entry_legs(default_entry: Entry):
+    entry = Entry(left=5, right=5)
+    assert entry.legs == (5, 5)
+    entry.add(1, is_left=True)
+    assert entry.legs == (6, 5)

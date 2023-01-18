@@ -1,3 +1,8 @@
+"""
+Each entry in the database.
+Author: Zack Hankin
+Started: 17/01/2023
+"""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -22,6 +27,16 @@ class Entry:
             int:
         """
         return self.left + self.right
+
+    @property
+    def legs(self) -> tuple[int, int]:
+        """
+        Each leg as a tuple.
+
+        Returns:
+            tuple[int, int] - left, right
+        """
+        return self.left, self.right
 
     def set_date_string(self, date_string: str) -> Entry:
         """
