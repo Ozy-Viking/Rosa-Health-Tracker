@@ -42,7 +42,7 @@ def test_entry_set_date_string_date():
     year = 2023
     month = 11
     day = 12
-    entry.set_date_string(f'{year}{month}{day}')
+    entry.set_date_string(f'{year}-{month}-{day}')
     assert entry.date == date(year, month, day)
 
 
